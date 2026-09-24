@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Talk without talking</title>
+<meta name="description" content="I put electrodes on my face so I could talk to my computer without making a sound. Silent speech to text, built solo.">
+<!-- link previews on X / LinkedIn / WhatsApp / Slack.  is replaced by deploy.sh -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Talk without talking">
+<meta property="og:description" content="I put electrodes on my face so I could talk to my computer without making a sound.">
+<meta property="og:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/poster.jpg">
+<meta property="og:url" content="https://ayush-kumar-prog.github.io/talk-without-talking/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Talk without talking">
+<meta name="twitter:description" content="I put electrodes on my face so I could talk to my computer without making a sound.">
+<meta name="twitter:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/poster.jpg">
+<style>
+  :root{--bg:#0b0b0d;--fg:#ececec;--dim:#9a9a9f;--line:#232327;--accent:#e8d9b0;--ok:#7ed3a0;--no:#e0a072}
+  *{box-sizing:border-box}
+  html{color-scheme:dark;background:var(--bg)}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font:17px/1.55 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  main{max-width:720px;margin:0 auto;padding:56px 22px 80px}
+  header{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--dim);margin-bottom:64px}
+  header a{color:var(--dim);text-decoration:none}
+  header a:hover{color:var(--fg)}
+  h1{font-size:clamp(34px,6.5vw,54px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;font-weight:650}
+  .lede{font-size:clamp(18px,2.4vw,21px);color:var(--fg);margin:0 0 34px;max-width:620px}
+  .video{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9}
+  .video video{width:100%;height:100%;display:block}
+  .cap{font-size:13px;color:var(--dim);margin:10px 2px 0}
+  section{margin-top:64px}
+  h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 14px;font-weight:600}
+  p{margin:0 0 14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:600px){.grid{grid-template-columns:1fr}}
+  ul{margin:0;padding:0;list-style:none}
+  li{padding:7px 0 7px 22px;position:relative;border-top:1px solid var(--line);font-size:16px}
+  li:first-child{border-top:0}
+  .yes li::before{content:"✓";position:absolute;left:0;color:var(--ok)}
+  .not li::before{content:"–";position:absolute;left:2px;color:var(--no)}
+  .form{border:1px solid var(--line);border-radius:12px;padding:26px 24px;background:#101013}
+  .form h2{color:var(--accent)}
+  .form p{color:var(--dim);font-size:15px}
+  iframe{width:100%;border:0;min-height:520px}
+  .btn{display:inline-block;background:var(--accent);color:#141208;text-decoration:none;font-weight:650;padding:13px 22px;border-radius:9px;margin-top:4px}
+  .btn:hover{filter:brightness(1.06)}
+  .small{font-size:13px;color:var(--dim);margin:10px 0 0}
+  footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--dim);display:flex;gap:18px;flex-wrap:wrap}
+  footer a{color:var(--dim)}
+  footer a:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span>Ayush Kumar</span>
+    <span><a href="#access">early access ↓</a></span>
+  </header>
+
+  <h1>Talk without talking.</h1>
+  <p class="lede">I put electrodes on my face so I could talk to my computer without making a sound.</p>
+
+  <div class="video">
+    <video controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="demo.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="cap">Sound on. The silence is the point.</p>
+
+  <section>
+    <h2>How it works</h2>
+    <p>Eight surface electrodes read the electrical activity of the muscles you use to speak. You mouth the words, no voice, no whisper. A model trained on my face turns that signal into text and types it into whatever app is open, on the laptop or the phone.</p>
+    <p>Every demo clip in the video is the live model. It was trained on about nine minutes of my own face, and it knows six phrases so far.</p>
+  </section>
+
+  <section class="grid">
+    <div>
+      <h2>What it does today</h2>
+      <ul class="yes">
+        <li>Types into any app: Claude Code, Gmail, WhatsApp, Notes, Slack</li>
+        <li>Laptop and phone</li>
+        <li>No sound. Verified from a microphone, not asserted</li>
+        <li>Learns a phrase in minutes</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What it doesn't do yet</h2>
+      <ul class="not">
+        <li>Open vocabulary. Six phrases, not anything you'd say</li>
+        <li>Other faces. Untested, and it's the next experiment</li>
+        <li>Fit in something you'd wear. It's pads and wires</li>
+        <li>Read thoughts. It reads muscles; you have to mouth the words</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="access" class="form">
+    <h2>Early access</h2>
+    <p>Tell me what you'd use it for first. If you're in San Francisco from October, you can try it on your own face.</p>
+    <!-- TALLY: create a form with three fields (email; "What would you use it for first?" single-select:
+         prompting AI agents / messaging / email / notes / private or medical settings / accessibility / other;
+         "I'm in San Francisco from October and want to try it" checkbox). Share -> Embed -> copy the
+         iframe and replace the block below. -->
+    <!-- interim capture until the Tally embed replaces this block: replies land in Gmail -->
+    <a class="btn" href="mailto:ayushkumargithub@gmail.com?subject=Early%20access&body=I%27d%20use%20it%20for%3A%20%0A%0AI%27m%20in%20San%20Francisco%20from%20October%3A%20yes%20%2F%20no%0A%0AName%3A%20">Request early access →</a>
+    <p class="small">Opens an email with two questions. Takes 20 seconds.</p>
+  </section>
+
+  <footer>
+    <a href="mailto:ayushkumargithub@gmail.com">email</a>
+    <a href="https://x.com/YOUR_HANDLE">X</a>
+    <a href="https://www.linkedin.com/in/YOUR_HANDLE">LinkedIn</a>
+    <span>Built solo. Manchester now, San Francisco from October.</span>
+  </footer>
+</main>
+</body>
+</html>
