@@ -5,32 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Talk without talking</title>
 <meta name="description" content="I put electrodes on my face so I could talk to my computer without making a sound. Silent speech to text, built solo.">
-<!-- link previews on X / LinkedIn / WhatsApp / Slack.  is replaced by deploy.sh -->
+<!-- link previews on X / LinkedIn / WhatsApp / Slack -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Talk without talking">
 <meta property="og:description" content="I put electrodes on my face so I could talk to my computer without making a sound.">
-<meta property="og:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/poster.jpg">
+<meta property="og:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ayush-kumar-prog.github.io/talk-without-talking/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Talk without talking">
 <meta name="twitter:description" content="I put electrodes on my face so I could talk to my computer without making a sound.">
-<meta name="twitter:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/poster.jpg">
+<meta name="twitter:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/og.jpg">
 <style>
-  :root{--bg:#0b0b0d;--fg:#ececec;--dim:#9a9a9f;--line:#232327;--accent:#e8d9b0;--ok:#7ed3a0;--no:#e0a072}
+  :root{--bg:#0b0b0d;--fg:#ececec;--dim:#9a9a9f;--line:#232327;--field:#16161a;--accent:#e8d9b0;--ok:#7ed3a0;--no:#e0a072}
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   html{color-scheme:dark;background:var(--bg)}
   body{margin:0;background:var(--bg);color:var(--fg);
        font:17px/1.55 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;
        -webkit-font-smoothing:antialiased}
   main{max-width:720px;margin:0 auto;padding:56px 22px 80px}
-  header{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--dim);margin-bottom:64px}
+  header{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--dim);margin-bottom:56px}
   header a{color:var(--dim);text-decoration:none}
   header a:hover{color:var(--fg)}
   h1{font-size:clamp(34px,6.5vw,54px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;font-weight:650}
   .lede{font-size:clamp(18px,2.4vw,21px);color:var(--fg);margin:0 0 34px;max-width:620px}
-  .video{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9}
-  .video video{width:100%;height:100%;display:block}
-  .cap{font-size:13px;color:var(--dim);margin:10px 2px 0}
+  /* vertical 9:16 video: as tall as the screen allows, full width on phones */
+  .video{position:relative;margin:0 auto;width:min(100%,calc(88vh * 9 / 16),560px);aspect-ratio:9/16;
+         border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000}
+  .video video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+  .cap{font-size:13px;color:var(--dim);margin:12px 2px 0;text-align:center}
   section{margin-top:64px}
   h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 14px;font-weight:600}
   p{margin:0 0 14px}
@@ -41,13 +46,32 @@
   li:first-child{border-top:0}
   .yes li::before{content:"✓";position:absolute;left:0;color:var(--ok)}
   .not li::before{content:"–";position:absolute;left:2px;color:var(--no)}
-  .form{border:1px solid var(--line);border-radius:12px;padding:26px 24px;background:#101013}
+  .form{border:1px solid var(--line);border-radius:14px;padding:26px 24px;background:#101013}
   .form h2{color:var(--accent)}
-  .form p{color:var(--dim);font-size:15px}
-  iframe{width:100%;border:0;min-height:520px}
-  .btn{display:inline-block;background:var(--accent);color:#141208;text-decoration:none;font-weight:650;padding:13px 22px;border-radius:9px;margin-top:4px}
+  .form > p{color:var(--dim);font-size:15px}
+  form{display:grid;gap:18px;margin-top:6px}
+  label.f{display:grid;gap:7px;font-size:15px}
+  .req{color:var(--accent)}
+  input[type=email],input[type=text],textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--field);
+        border:1px solid var(--line);border-radius:9px;padding:11px 13px;outline:none}
+  input:focus,textarea:focus{border-color:#4a4a52}
+  textarea{resize:vertical;min-height:84px}
+  fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+  legend{font-size:15px;margin:0 0 8px;padding:0}
+  .opt{display:flex;align-items:center;gap:10px;font-size:15px;color:#dcdcdc;cursor:pointer}
+  .opt input{accent-color:var(--accent);width:17px;height:17px;margin:0;flex:0 0 auto}
+  .other{display:flex;align-items:center;gap:10px}
+  .other input[type=text]{padding:8px 11px;font-size:15px}
+  .row{display:flex;gap:18px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--accent);color:#141208;text-decoration:none;font:inherit;font-weight:650;
+       padding:13px 22px;border-radius:9px;border:0;cursor:pointer;justify-self:start}
   .btn:hover{filter:brightness(1.06)}
-  .small{font-size:13px;color:var(--dim);margin:10px 0 0}
+  .btn[disabled]{opacity:.6;cursor:default}
+  .small{font-size:13px;color:var(--dim);margin:0}
+  .small a{color:var(--dim)}
+  .err{color:var(--no);font-size:14px;margin:0}
+  .thanks{font-size:17px}
+  .thanks b{color:var(--accent)}
   footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--dim);display:flex;gap:18px;flex-wrap:wrap}
   footer a{color:var(--dim)}
   footer a:hover{color:var(--fg)}
@@ -100,21 +124,76 @@
   <section id="access" class="form">
     <h2>Early access</h2>
     <p>Tell me what you'd use it for first. If you're in San Francisco from October, you can try it on your own face.</p>
-    <!-- TALLY: create a form with three fields (email; "What would you use it for first?" single-select:
-         prompting AI agents / messaging / email / notes / private or medical settings / accessibility / other;
-         "I'm in San Francisco from October and want to try it" checkbox). Share -> Embed -> copy the
-         iframe and replace the block below. -->
-    <!-- interim capture until the Tally embed replaces this block: replies land in Gmail -->
-    <a class="btn" href="mailto:ayushkumargithub@gmail.com?subject=Early%20access&body=I%27d%20use%20it%20for%3A%20%0A%0AI%27m%20in%20San%20Francisco%20from%20October%3A%20yes%20%2F%20no%0A%0AName%3A%20">Request early access →</a>
-    <p class="small">Opens an email with two questions. Takes 20 seconds.</p>
+
+    <!-- Posts to the Google Form "Talk without talking - early access" (responses land in Ayush's Google Forms / Sheets) -->
+    <form id="signup" novalidate>
+      <label class="f"><span>Email <span class="req" aria-hidden="true">*</span></span>
+        <input type="email" name="entry.1218262359" required autocomplete="email" placeholder="you@example.com">
+      </label>
+      <label class="f">Name
+        <input type="text" name="entry.1448924154" autocomplete="name" placeholder="Your name">
+      </label>
+      <fieldset>
+        <legend>What would you use it for first?</legend>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Talking to AI (ChatGPT, Claude, coding agents)"> Talking to AI (ChatGPT, Claude, coding agents)</label>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Messages (WhatsApp, iMessage)"> Messages (WhatsApp, iMessage)</label>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Email"> Email</label>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Notes and writing"> Notes and writing</label>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Quiet or private places (office, library, commute)"> Quiet or private places (office, library, commute)</label>
+        <label class="opt"><input type="radio" name="entry.805958540" value="Accessibility (voice loss or speech difficulty)"> Accessibility (voice loss or speech difficulty)</label>
+        <div class="other">
+          <label class="opt"><input type="radio" name="entry.805958540" value="__other_option__" id="useOther"> Other:</label>
+          <input type="text" id="useOtherText" aria-label="Other use" placeholder="tell me">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>In San Francisco from October and want to try it on your own face?</legend>
+        <div class="row">
+          <label class="opt"><input type="radio" name="entry.1406733790" value="Yes"> Yes</label>
+          <label class="opt"><input type="radio" name="entry.1406733790" value="Maybe"> Maybe</label>
+          <label class="opt"><input type="radio" name="entry.1406733790" value="No"> No</label>
+        </div>
+      </fieldset>
+      <label class="f">Anything else you'd like me to know?
+        <textarea name="entry.831140390" rows="3" placeholder="optional"></textarea>
+      </label>
+      <p class="err" id="err" hidden></p>
+      <button type="submit" class="btn" id="go">Join early access →</button>
+      <p class="small">Takes 20 seconds. Or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhqz6a_AW9YO6WL3cb29xkLxI5sCTDfuQ9sQp56JzYwQW63g/viewform" target="_blank" rel="noopener">open the form directly</a>.</p>
+    </form>
+    <p class="thanks" id="thanks" hidden><b>You're on the list.</b> Thank you. I'll be in touch, and if you're in San Francisco, I'll reach out about trying it on your own face.</p>
   </section>
 
   <footer>
     <a href="mailto:ayushkumargithub@gmail.com">email</a>
-    <a href="https://x.com/YOUR_HANDLE">X</a>
-    <a href="https://www.linkedin.com/in/YOUR_HANDLE">LinkedIn</a>
+    <a href="https://x.com/Ayush__kmr">X</a>
+    <a href="https://www.linkedin.com/in/ayushkumarcode/">LinkedIn</a>
     <span>Built solo. Manchester now, San Francisco from October.</span>
   </footer>
 </main>
+<script>
+(function(){
+  var ACTION='https://docs.google.com/forms/d/e/1FAIpQLSfhqz6a_AW9YO6WL3cb29xkLxI5sCTDfuQ9sQp56JzYwQW63g/formResponse';
+  var form=document.getElementById('signup'), err=document.getElementById('err'), go=document.getElementById('go');
+  var other=document.getElementById('useOther'), otherText=document.getElementById('useOtherText');
+  otherText.addEventListener('input',function(){ if(otherText.value) other.checked=true; });
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    var email=form.querySelector('input[type=email]');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ err.textContent='Please enter a valid email.'; err.hidden=false; email.focus(); return; }
+    var data=new URLSearchParams();
+    form.querySelectorAll('input[name],textarea[name]').forEach(function(el){
+      if((el.type==='radio'||el.type==='checkbox')&&!el.checked) return;
+      if(el.value.trim()!=='') data.append(el.name, el.value.trim());
+    });
+    if(other.checked) data.append('entry.805958540.other_option_response', otherText.value.trim());
+    go.disabled=true; go.textContent='Sending…';
+    fetch(ACTION,{method:'POST',mode:'no-cors',body:data})
+      .then(function(){ form.hidden=true; document.getElementById('thanks').hidden=false; })
+      .catch(function(){ go.disabled=false; go.textContent='Join early access →';
+        err.innerHTML='Something went wrong. Please use <a href="'+ACTION.replace('formResponse','viewform')+'" target="_blank" rel="noopener">the form directly</a>.'; err.hidden=false; });
+  });
+})();
+</script>
 </body>
 </html>

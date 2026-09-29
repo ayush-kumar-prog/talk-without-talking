@@ -1,13 +1,12 @@
-# site/ — the launch page
+# site/: the launch page
 
-One file, no build. Hosted on GitHub Pages: https://ayush-kumar-prog.github.io/talk-without-talking/  — edit, then `bash site/deploy.sh`.
+This is one file with no build step. It's hosted on GitHub Pages at https://ayush-kumar-prog.github.io/talk-without-talking/. Edit it, then run `bash site/deploy.sh`.
 
-1. `site/demo.mp4`  — the final video (deploy.sh compresses anything over ~40 MB).
-2. `site/poster.jpg` — deploy.sh extracts the first frame if missing. Replace with a better frame if you like.
-3. Tally form (5 min): tally.so → new form → fields: Email; "What would you use it for first?"
-   (single select: prompting AI agents / messaging / email / notes / private or medical settings /
-   accessibility / other); "I'm in San Francisco from October and want to try it" (checkbox).
-   Share → Embed → copy the `<iframe …>` and replace the `.todo` div in index.html.
-4. Footer: replace `YOUR_HANDLE` twice. Header name: change if you pick a company name.
-
-Link previews: deploy.sh rewrites `SITE_URL` to the deployed URL so X/LinkedIn/WhatsApp show the poster.
+- `demo.mp4`: the final vertical demo (9:16). It is `~/Downloads/final demo video 1.mp4` re-encoded for the web: H.264 CRF 20, 6 Mbit/s cap, faststart. It's 49.9 MB, just under GitHub's 50 MB warning; SSIM against the original is 0.993.
+- `poster.jpg`: the video poster (the 1 s frame, 1080x1920).
+- `og.jpg`: the link-preview image for X, LinkedIn and WhatsApp (1200x630: the 1 s frame on a blurred background).
+- **Early-access form**
+  - The native form in `index.html` posts to the Google Form "Talk without talking - early access" in ayushkumarworkacc@gmail.com's Google Forms. Responses go to the form's Responses tab; you can link a Sheet from there.
+  - Responder link: https://docs.google.com/forms/d/e/1FAIpQLSfhqz6a_AW9YO6WL3cb29xkLxI5sCTDfuQ9sQp56JzYwQW63g/viewform
+  - Editor: https://docs.google.com/forms/d/1Tn8DbH8r-knxuZgKo4Vk1jU7aUSI1n6WPHmPYpulGjk/edit
+  - If you add or rename questions in the Google Form, the `entry.NNN` field IDs in `index.html` must match. Get them from the responder page's `FB_PUBLIC_LOAD_DATA_`.
