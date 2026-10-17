@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>If you can mouth the words, you can speak again · Talk without talking</title>
+<meta name="description" content="For people who have lost their voice but can still move their mouth. A sensor on the face turns silent mouthing into typed or spoken words. Reserve a fitting.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="If you can mouth the words, you can speak again.">
+<meta property="og:description" content="For people who have lost their voice but can still move their mouth. Reserve a fitting with a refundable $99 deposit.">
+<meta property="og:image" content="https://ayush-kumar-prog.github.io/talk-without-talking/og.jpg">
+<meta property="og:url" content="https://ayush-kumar-prog.github.io/talk-without-talking/voice.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0b0b0d;--fg:#ececec;--dim:#9a9a9f;--line:#232327;--field:#16161a;--accent:#e8d9b0;--ok:#7ed3a0;--no:#e0a072}
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{color-scheme:dark;background:var(--bg)}
+  body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  main{max-width:720px;margin:0 auto;padding:56px 22px 80px}
+  header{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--dim);margin-bottom:48px}
+  header a{color:var(--dim);text-decoration:none}
+  h1{font-size:clamp(34px,6.5vw,54px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;font-weight:650}
+  .lede{font-size:clamp(18px,2.4vw,21px);margin:0 0 30px;max-width:620px}
+  .video{position:relative;margin:0 auto;width:min(100%,calc(70vh * 9 / 16),420px);aspect-ratio:9/16;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000}
+  .video video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+  .cap{font-size:13px;color:var(--dim);margin:12px 2px 0;text-align:center}
+  section{margin-top:56px}
+  h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 14px;font-weight:600}
+  p{margin:0 0 14px}
+  .box{border:1px solid var(--line);border-radius:14px;padding:26px 24px;background:#101013}
+  .box h2{color:var(--accent)}
+  .price{font-size:clamp(26px,4vw,34px);font-weight:650;margin:6px 0 4px}
+  .price small{font-size:15px;color:var(--dim);font-weight:400}
+  .count{font-size:15px;color:var(--ok);margin:0 0 18px}
+  .btn{display:inline-block;background:var(--accent);color:#141208;text-decoration:none;font:inherit;font-weight:650;padding:14px 24px;border-radius:9px;border:0;cursor:pointer}
+  .btn:hover{filter:brightness(1.06)}
+  .small{font-size:13px;color:var(--dim);margin:12px 0 0}
+  .small a{color:var(--dim)}
+  ul{margin:0;padding:0;list-style:none}
+  li{padding:7px 0 7px 22px;position:relative;border-top:1px solid var(--line);font-size:16px}
+  li:first-child{border-top:0}
+  .yes li::before{content:"✓";position:absolute;left:0;color:var(--ok)}
+  .not li::before{content:"–";position:absolute;left:2px;color:var(--no)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:600px){.grid{grid-template-columns:1fr}}
+  details{border-top:1px solid var(--line);padding:12px 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-size:16px}
+  details p{color:var(--dim);font-size:15px;margin:8px 0 0}
+  .note{font-size:14px;color:var(--dim);border-left:2px solid var(--line);padding-left:14px}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--dim);display:flex;gap:18px;flex-wrap:wrap}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span><a href="./">← Talk without talking</a></span>
+    <span>Ayush Kumar · San Francisco</span>
+  </header>
+
+  <h1>If you can mouth the words, you can speak again.</h1>
+  <p class="lede">For people who have lost their voice but can still move their mouth: after a laryngectomy, with vocal cord paralysis, a tracheostomy, or spasmodic dysphonia. A small sensor on the face reads the words you mouth and turns them into text on a screen, or a voice from a speaker.</p>
+
+  <div class="video">
+    <video controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="demo.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="cap">The prototype on my own face. No sound comes out of me; the words come out of the computer.</p>
+
+  <section class="box" id="reserve">
+    <h2>Reserve a fitting, the first 10</h2>
+    <p class="price">$99 deposit <small>credited toward the $1,500 price</small></p>
+    <!-- Counter: keep hidden until 2+ deposits. Then set the number, delete the word hidden, run deploy.sh. Never show 0. -->
+    <p class="count" id="count" hidden>RESERVED_COUNT of 10 reserved</p>
+    <!-- No Stripe link for fittings yet (fitting price undecided). Email CTA until then; swap in a Payment Link here when it exists. -->
+    <a class="btn" href="mailto:ayushkumargithub@gmail.com?subject=Fitting%20for%20a%20voice&amp;body=Tell%20me%20in%20a%20few%20words%20what%20happened%20to%20your%20voice%2C%20and%20whether%20you%20can%20still%20move%20your%20lips%20to%20shape%20words.">Ask me about a fitting →</a>
+    <p class="small">I read every one of these myself and reply. Deposits are refundable in full at any time before the fitting. Fittings in person, San Francisco now; India and the UK by arrangement. <a href="terms.html">Terms</a>.</p>
+  </section>
+
+  <section class="grid">
+    <div>
+      <h2>What you get</h2>
+      <ul class="yes">
+        <li>A unit fitted to you, in person, by me</li>
+        <li>The software: your mouthed words typed, or spoken by a voice</li>
+        <li>I keep working on it until it works for you, or I refund you</li>
+        <li>Nothing stuck to the skin long term; no surgery, no gel, nothing in the mouth</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Honest limits</h2>
+      <ul class="not">
+        <li>You must be able to move your lips, jaw and tongue. It reads movement, not thoughts</li>
+        <li>Today it works for the person who built it. Making it work for you is the job</li>
+        <li>Start with a fixed set of phrases, then grow</li>
+        <li>This is an input device, not a medical treatment</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Who is this for?</summary><p>Anyone who understands speech and can still shape words with their mouth, but can't make sound: after laryngectomy, vocal cord paralysis, tracheostomy, or severe spasmodic dysphonia. If the muscles of the mouth are themselves weakened, it may not work, and I'll tell you honestly at the fitting.</p></details>
+    <details><summary>How long does a fitting take?</summary><p>About an hour the first time: placing the sensor, recording you mouthing a set of phrases, and testing. Then it improves every time you use it.</p></details>
+    <details><summary>Is it a medical device?</summary><p>No. It makes no medical claims and treats nothing. It is an input device, like a keyboard, that you control with your mouth instead of your fingers.</p></details>
+    <details><summary>Why a deposit?</summary><p>So I know you mean it, and you know I do. If I can't make it work for you, you get it back.</p></details>
+  </section>
+
+  <p class="note">A family I've never met found my parents' phone number after the newspaper story and asked if this could work for their daughter. This page is for them, and for you.</p>
+
+  <footer>
+    <a href="mailto:ayushkumargithub@gmail.com">email</a>
+    <a href="https://x.com/Ayush__kmr">X</a>
+    <a href="https://www.linkedin.com/in/ayushkumarcode/">LinkedIn</a>
+    <a href="reserve.html">Using it at work instead? This page →</a>
+  </footer>
+</main>
+</body>
+</html>
